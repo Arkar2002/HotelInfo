@@ -1,0 +1,604 @@
+/* reuse tag, className and variabel */
+:root {
+    --low-opacity: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.1),
+            rgba(0, 0, 0, 0.5)
+    );
+
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #fff !important;
+    text-decoration: none;
+}
+
+button {
+    outline: 0;
+}
+
+.list-unstyled {
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+/* Start Progress */
+.progress-container {
+    width: 60px;
+    height: 60px;
+    background: #eee;
+    border-radius: 50%;
+    position: fixed;
+    left: 15px;
+    bottom: 15px;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-container .progress-value {
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    background-color: #fff;
+    border-radius: inherit;
+    display: grid;
+    place-items: center;
+}
+/* End Progress */
+
+/* Start Header Section */
+
+header {
+    height: 95vh;
+    /*background: url("../assets/img/banner/banner8.jpg"), var(--low-opacity);*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    transition: all 700ms linear;
+}
+
+.navbar {
+    background: var(--low-opacity) !important;
+}
+
+/* start dropdown */
+.dropdowns {
+    position: relative;
+}
+
+.dropdowns.active .dropdown-link {
+    color: #000;
+}
+
+.dropdown-content {
+    min-width: 230px;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    top: calc(100% + .5rem);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    transform: translateY(-10px);
+    transition: transform 150ms, opacity 200ms;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.dropdown-content input {
+    width: 100%;
+    background-image: url('./../assets/img/icon/searchicon.png');
+    background-repeat: no-repeat;
+    background-position: 5px center;
+    border: 0;
+    border-bottom: 1px solid #bbb;
+    outline: 0;
+    padding: 5px 5px 5px 38px;
+}
+
+.dropdown-content li {
+    transition: background-color 150ms;
+}
+
+.dropdown-content li:hover {
+    background-color: #ddd;
+}
+
+.dropdowns.active .dropdown-content {
+    pointer-events: auto;
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.dropdown-list {
+    color: #000 !important;
+}
+
+.dropdown-item {
+    color: #000 !important;
+}
+
+/* end dropdown */
+
+/* start banner */
+.banner-section {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.banner-header {
+    min-width: 600px;
+    background: var(--low-opacity);
+    border: 5px dashed #fff;
+    padding: 20px;
+    animation: banner-ani 1.5s linear;
+}
+
+.banner-header h1 {
+    font-size: 50px;
+}
+
+.banner-paragraph {
+    animation: banner-ani 1.5s linear .5s backwards;
+}
+
+@keyframes banner-ani {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+/* end banner */
+/* End Header Section */
+
+/* Start Booking Section */
+.booking-section {
+    width: 100%;
+    position: absolute;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking-content {
+    width: 80%;
+    background: linear-gradient(
+        to left,
+        skyblue,
+        steelblue
+    );
+    padding: 30px 0;
+}
+
+.booking-content form {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.booking-content form > * {
+    margin: 5px 10px;
+}
+
+.booking-content .form-control,.booking-content .search-smth {
+    width: 18%;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 8px;
+    outline: 0;
+}
+
+.search-smth {
+    transition: width .5s;
+}
+
+.search-smth::placeholder {
+    font-size: 12px;
+}
+
+/* End Booking Section */
+
+/* Start Rooms Section*/
+.rooms-section {
+    margin: 50px 0 0;
+}
+
+.row img {
+    cursor: pointer;
+    transition: opacity 250ms;
+}
+
+.row img:hover {
+    opacity: 0.8;
+}
+/* End Rooms Section*/
+
+/* Start Services Section */
+.services-card {
+    position: relative;
+    background-color: #f4f4f4;
+    padding: 50px 10px;
+}
+
+.services-card::before {
+    content: '';
+    width: 100%;
+    height: 5%;
+    background-color: purple;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: height 350ms;
+}
+
+.services-card .service-icon {
+    width: 80px;
+    height: 80px;
+    background-color: purple;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    /* need to translate before rotate */
+    transform: translate(-50%,-50%) rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .5s;
+}
+
+
+.services-card .service-icon i {
+    color: #fff;
+    transform: rotate(-45deg);
+}
+
+.services-card:hover::before {
+    height: 10%;
+}
+
+.services-card:hover .service-icon {
+    background-color: transparent;
+    border: 1px solid purple;
+}
+
+.services-card:hover .service-icon i {
+    color: purple;
+}
+
+.service-dropdowns {
+    position: relative;
+}
+
+.service-dropdowns .service-dropdown-content {
+    min-width: 200px;
+    background-color: #f4f4f4;
+    position: absolute;
+    left: 50%;
+    top: calc(100% + .8rem);
+    transform: translate(-50%, -10px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 250ms, opacity 100ms;
+}
+
+.service-dropdowns.active .service-dropdown-content {
+    transform: translate(-50%, -10px);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.service-dropdown-content li {
+    padding: 8px;
+}
+
+.service-dropdown-content li:hover {
+    background-color: #ddd;
+}
+
+.more-btn:hover {
+    color: #fff !important;
+}
+ /*End Services Section*/
+
+/* Start Testimonials Section */
+.testimonials-container {
+    position: relative;
+}
+
+.testimonials-icons {
+    font-size: 35px;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+}
+
+.testimonials-icons:last-of-type {
+    left: 0;
+}
+
+.testimonials-progress {
+    width: 100%;
+    height: 5px;
+    background-color: #000;
+}
+
+.testimonials-progressbar {
+    width: 100%;
+    height: inherit;
+    background-color: coral;
+    transform-origin: left center;
+    animation: myincani 10s linear infinite;
+}
+
+@keyframes myincani {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+/* End Testimonials Section */
+
+/* Start Staff Section */
+.staff-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.staff-container .staff-content {
+    width: 15%;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.staff-content img {
+    width: 100%;
+}
+
+.staff-content .staff-title {
+    font-weight: bold;
+    opacity: .6;
+}
+
+.staff-content:hover img {
+    opacity: 0.8;
+}
+
+.staff-social-icons a i {
+    font-size: 24px;
+}
+
+/* End Staff Section */
+
+/* Start Nature Section */
+.nature-section {
+    background-image: url("../assets/img/banner/banner8.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.nature-content h1 {
+    font-size: 5vw;
+    font-weight: bold;
+    background-color: #fff;
+    color: #000;
+    mix-blend-mode: screen;
+    padding: 40px;
+}
+
+.nature-section:hover {
+    animation: natureImage 3s linear infinite alternate;
+}
+
+@keyframes natureImage {
+    0% {
+        background-image: url("../assets/img/banner/banner8.jpg");
+    }
+
+    50% {
+        background-image: url("../assets/img/banner/banner9.jpg");
+    }
+
+    100% {
+        background-image: url("../assets/img/banner/banner10.jpg");
+    }
+}
+/* End Nature Section*/
+
+/* Start Property Section */
+.propertylists {
+    color: #000 !important;
+    user-select: none;
+}
+
+.propertylists.active {
+    color: purple !important;
+}
+
+.filters {
+    display: none;
+}
+/* End Property Section*/
+
+/* Start Contact Section */
+.tab-boxes {
+    padding: 0;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-link-container {
+    display: flex;
+    width: 100%;
+}
+
+.tab-links {
+    color: #fff;
+    background-color: #444;
+    width: 25%;
+    border: 0;
+    padding: 10px;
+}
+
+.tab-links:hover {
+    background-color: #888;
+}
+
+#message {
+    resize: none;
+}
+/* End Contact Section */
+
+/* Start Media */
+@media (min-width: 1200px) {
+    .search-smth:placeholder-shown {
+        width: 10%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .staff-container .staff-content {
+        width: 35%;
+    }
+
+    .rooms-section {
+        margin: 70px 0 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .banner-header {
+        min-width: 460px;
+    }
+
+    .banner-header h1 {
+        font-size: 30px;
+    }
+
+    .banner-paragraph p {
+        font-size: 18px !important;
+    }
+
+    .services-card {
+        margin-bottom: 50px;
+    }
+
+    .booking-content .form-control,.booking-content .search-smth {
+        width: 80%;
+    }
+
+    .rooms-section {
+        margin: 150px 0 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .dropdown-content {
+        left: 10%;
+        transform: translateX(-50%);
+    }
+
+    .staff-container .staff-content {
+        width: 65%;
+    }
+}
+/* End Media */
+
+/* Start Chat Box */
+.chat-box {
+    width: 400px;
+    height: auto;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    z-index: 100;
+}
+
+.chat-box.active .chat-content {
+    display: block;
+}
+
+.chat-button,
+.chat-content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.chat-button {
+    width: 50px;
+    height: 50px;
+    background-color: #f4f4f4;
+    border: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.chat-content {
+    background-color: #f4f4f4;
+    padding: 10px;
+    right: 30px;
+    bottom: calc(100% + 3.2rem);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.6);
+    display: none;
+}
+
+.chat-container {
+    height: 80px;
+    background-color: #fff;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.chat-container.client {
+    text-align: right;
+    background-color: #bbb;
+}
+
+.chat-content textarea {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    padding: 10px;
+    resize: none;
+}
+/* End Chat Box */
